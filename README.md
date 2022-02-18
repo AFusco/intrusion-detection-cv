@@ -14,7 +14,7 @@ A _true object_, is an object abandoned by the subject, whilst a _false object_ 
 
 The system will provide the following outputs for each video frame:
 
-- **Graphical Output**: labeled blobs or the labeled contours corresponding to detected objects
+- **Graphical Output**: labeled blobs or the labeled contours corresponding to detected objects (red for false object, green for true object, blue for person)
 - **Text Output**: text file reporting the number of detected objects, the values of the associated blob features and the classification into either “person” or “other”
 
  <p align="center">

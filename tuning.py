@@ -26,7 +26,7 @@ hyperparams = {
         # Blending parameter for mean-based and median-based backgrounds.
         'alpha': 0.5,
         # Filter out blobs that are smaller than 0.1% of the frame size, in terms of area.
-        'area_thresh_perc': 0.001
+        'area_thresh_perc': 0.003
     },
 
     # Background subtraction parameters
@@ -61,5 +61,5 @@ hyperparams = {
 kernels = {
     'small': cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (4, 4)),
     'big': cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (16, 16)),
-    'vertical': (50, 1)
+    'dilation': cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)),
 }

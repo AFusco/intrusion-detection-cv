@@ -255,13 +255,12 @@ class IntrusionDetection:
         cleanedMask = cv2.morphologyEx(cleanedMask,
                                        cv2.MORPH_CLOSE,
                                        kernels['small'],
-                                       iterations=2)
+                                       iterations=3)
 
-        cleanedMask = cv2.morphologyEx(cleanedMask,
-                                       cv2.MORPH_CLOSE,
-                                       kernels['vertical'],
-                                       iterations=1)
-
+        cleanedMask = cv2.dilate(cleanedMask, 
+                                 kernels['dilation'], 
+                                 iterations=1)
+        
         cleanedMask = cv2.morphologyEx(cleanedMask,
                                        cv2.MORPH_CLOSE,
                                        kernels['big'],
@@ -272,6 +271,7 @@ class IntrusionDetection:
                                        kernels['small'],
                                        iterations=1)
 
+        cv2.waitKey(0)
         # Remove padding from mask
         cleanedMask = cleanedMask[padding_size:-padding_size,
                                   padding_size:-padding_size]
